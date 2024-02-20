@@ -49,6 +49,7 @@ public:
     int ans=0;
 
     for(int i=0;i<n;i++){
+        //we can also use switch inside the for loop
         if(check(s[i])>=check(s[i+1])){
             ans+=(check(s[i]));
         }
