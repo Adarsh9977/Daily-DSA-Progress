@@ -22,3 +22,27 @@ public:
         return ans;
     }
 };
+
+//Approach-1 using stack
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        stack<int> st;
+        ListNode* temp=head;
+        while(temp!=NULL){
+            st.push(temp->val);
+            temp=temp->next;
+        }
+        int n=st.size();
+        temp=head;
+        int count=1;
+        int ans=0;
+        while(count<=n/2){
+            ans=max(ans, temp->val+st.top());
+            temp=temp->next;
+            st.pop();
+            count++;
+        }
+        return ans;
+    }
+};
